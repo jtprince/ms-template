@@ -1,0 +1,31 @@
+
+= {ms-template}[http://jtprince.github.com/ms-template/rdoc/]
+
+ms-template is an {mspire}[http:/jtprince.github.com/mspire/] library that gives the suggested layout for an mspire <tt>ms-<whatever></tt> package.
+
+<b>DO NOT MODIFY <tt>git@github.com:jtprince/ms-template.git</tt> directly!</b>  <em>Modify the generator described below, run it, and push the changes.</em>  Of course, if you clone this for a new project, you should modify it directly.
+
+== Examples
+
+This template can be used to start a fresh project by cloning it:
+
+    git clone git@github.com:jtprince/ms-template.git
+
+Now you need to search and replace:
+
+    1. ms-template => <your project>
+    2. John T. Prince => <your name>
+    3. <email address hidden> => <your email>
+    4. (and some other minor changes to the specs)
+    5. make sure the LICENSE is as you desire it
+
+Or, install the mspire gem (<tt>gem install mspire</tt>), go to the base directory of the gem and you will find a script in the 'script' folder: <em>mspire_pkg_skeleton.rb</em>.  Run the script with no arguments for usage information.
+
+== Installation
+
+(You probably don't want to actually install the template.  See Examples above for cloning or generating a template for your mspire project) 
+
+== Copyright
+
+See LICENSE.
+    
