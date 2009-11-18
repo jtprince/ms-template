@@ -4,8 +4,8 @@
 
 <html>
     <head>
-        <title> mspire: <%= package_name %> - <%= @item[:title] %></title>
-        <link rel="stylesheet", type="text/css" href="<%= x =current_layout.data['base_url'] ; puts x ; x   %>/style/mspire.css" media="screen"/>
+        <title> mspire: <%= Mspire.package_name %> - <%= @item[:title] %></title>
+        <link rel="stylesheet", type="text/css" href="<%= Mspire.template_base_url %>/style/mspire.css" media="screen"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = 750">
 
@@ -15,10 +15,10 @@
             <!-- banner -->
             <div id="header">
                 <div id="mspire_logo">
-                    <a href="http://jtprince.github.com/mspire/"><img border="none" src="/ms-template/images/mspire_v2_banner.png"/></a>
+                    <a href="<%= Mspire.mspire_site %>"><img border="none" src="<%= Mspire.template_base_url %>/images/mspire_v2_banner.png"/></a>
                 </div>
                 <div id="package">
-                    <h1><%= package_name %></h1>
+                    <h1><%= Mspire.package_name %></h1>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
             <div id="navigation">
                 <ul>
                     <!-- global_navigation_links defined in lib/mspire.rb -->
-                    <% package_global_navigation_links.each do |name, ref| %>
+                    <% Mspire.package_global_navigation_links.each do |name, ref| %>
                     <li class="nav" id="<%= name.downcase %>"> 
                     <a href="<%= ref %>"><%= name %></a>
                     </li> 
@@ -49,7 +49,7 @@
                         <h4>Links</h4>
                         <ul>
                             <!-- defined in lib/mspire.rb -->
-                            <% other_links.each do |name, ref| %>
+                            <% Mspire.other_links.each do |name, ref| %>
                             <li><a href="<%= ref %>"><%= name %></a></li>
                             <% end %>
                         </ul>
