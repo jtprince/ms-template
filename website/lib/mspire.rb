@@ -18,7 +18,7 @@ module Mspire
     [
       ['Intro', website_base + "/"],
       ['Source', github_base],
-      ['API', github_base + "/rdoc/"],
+      ['API', website_base + "/rdoc/"],
       ['Issues', github_base + "/issues/"],
       ['Wiki', wiki_base + "/"]
     ]
