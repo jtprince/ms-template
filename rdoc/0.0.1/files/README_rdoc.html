@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Nov 18 13:16:28 -0700 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="http://jtprince.github.com/ms-template/rdoc/">ms-template</a></h1>
+<p>
+ms-template is an <a href="http:/jtprince.github.com/mspire/">mspire</a>
+library that gives the suggested layout for an mspire
+<tt>ms-&lt;whatever&gt;</tt> package.
+</p>
+<p>
+<b>DO NOT MODIFY <tt>git@github.com:jtprince/ms-template.git</tt>
+directly!</b> <em>Modify the generator described below, run it, and push
+the changes.</em> Of course, if you clone this for a new project, you
+should modify it directly.
+</p>
+<h2>Examples</h2>
+<p>
+This template can be used to start a fresh project by cloning it:
+</p>
+<pre>
+    git clone git@github.com:jtprince/ms-template.git
+</pre>
+<p>
+Now you need to search and replace:
+</p>
+<pre>
+    1. ms-template =&gt; &lt;your project&gt;
+    2. John T. Prince =&gt; &lt;your name&gt;
+    3. &lt;email address hidden&gt; =&gt; &lt;your email&gt;
+    4. (and some other minor changes to the specs)
+    5. make sure the LICENSE is as you desire it
+</pre>
+<p>
+Or, install the mspire gem (<tt>gem install mspire</tt>), go to the base
+directory of the gem and you will find a script in the &#8216;script&#8217;
+folder: <em>mspire_pkg_skeleton.rb</em>. Run the script with no arguments
+for usage information.
+</p>
+<h2>Installation</h2>
+<p>
+(You probably don&#8216;t want to actually install the template. See
+Examples above for cloning or generating a template for your mspire
+project)
+</p>
+<h2>Copyright</h2>
+<p>
+See LICENSE.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
