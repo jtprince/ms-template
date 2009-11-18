@@ -9,7 +9,7 @@ def package_global_navigation_links
   project.sub!(/\.git$/,'')
   github_base = "http://github.com/#{user}/#{project}"
   {
-    'Intro' => '/',
+    'Intro' => "/#{project}/",
     'Source' => github_base,
     'API' => github_base + "/rdoc/",
     'Issues' => github_base + "/issues/",
