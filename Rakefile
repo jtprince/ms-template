@@ -63,10 +63,14 @@ end
 namespace :website do
   desc "checkout and configure the gh-pages submodule"
   task :init do
-    puts `git submodule init`
-    puts `git submodule update`
-    Dir.chdir(WEBSITE_OUTPUT) do
-      puts `git co --track -b gh-pages origin/gh-pages`
+    if File.exist?(WEBSITE_OUTPUT + "/.git")
+      puts "!! not doing anything, #{WEBSITE_OUTPUT + "/.git"} already exists !!"
+    else
+      system "git submodule init"
+      system "git submodule update"
+      Dir.chdir(WEBSITE_OUTPUT) do
+        system "git co --track -b gh-pages origin/gh-pages ;"
+      end
     end
   end
 end
