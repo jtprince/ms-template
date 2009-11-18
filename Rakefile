@@ -6,6 +6,8 @@ require 'rake/testtask'
 require 'rcov/rcovtask'
 
 NAME = "ms-template"
+WEBSITE_BASE = "website"
+WEBSITE_OUTPUT = WEBSITE_BASE + "/output"
 
 gemspec = Gem::Specification.new do |s|
   s.name = NAME
@@ -39,7 +41,7 @@ end
 def rdoc_redirect(base_rdoc_output_dir, package_website_page, version)
   content = %Q{
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>mspire: #{NAME} rdoc</title>
+<html><head><title>mspire: } + NAME + %Q{rdoc</title>
 <meta http-equiv="REFRESH" content="0;url=#{package_website_page}/rdoc/#{version}/">
 </head> </html> 
   }
@@ -49,13 +51,24 @@ end
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
-  base_rdoc_output_dir = 'website/output/rdoc'
+  base_rdoc_output_dir = WEBSITE_OUTPUT + '/rdoc'
   version = File.read('VERSION')
   rdoc.rdoc_dir = base_rdoc_output_dir + "/#{version}"
   rdoc.title = NAME + ' ' + version
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
   rdoc_redirect(base_rdoc_output_dir, gemspec.homepage,version)
+end
+
+namespace :website do
+  desc "checkout and configure the gh-pages submodule"
+  task :init do
+    puts `git submodule init`
+    puts `git submodule update`
+    Dir.chdir(WEBSITE_OUTPUT) do
+      puts `git co --track -b gh-pages origin/gh-pages`
+    end
+  end
 end
 
 task :default => :spec
