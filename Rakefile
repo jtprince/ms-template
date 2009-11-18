@@ -60,6 +60,7 @@ Rake::RDocTask.new do |rdoc|
 end
 
 task :create_redirect do
+  base_rdoc_output_dir = WEBSITE_OUTPUT + '/rdoc'
   rdoc_redirect(base_rdoc_output_dir, gemspec.homepage,version)
 end
 
