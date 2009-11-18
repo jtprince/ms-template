@@ -75,6 +75,7 @@ namespace :website do
       puts "(not sure why this won't work programmatically)"
       puts "################################################"
       puts "[Execute these commands]"
+      puts "################################################"
       puts "git submodule init"
       puts "git submodule update"
       puts "pushd #{WEBSITE_OUTPUT}"
