@@ -32,5 +32,8 @@ def other_links
     'tap' => 'http://tap.rubyforge.org/' }
 end
 
+def current_layout
+  @layouts.find {|l| l.path == @page.layout.cleaned_path }
+end
 
 
