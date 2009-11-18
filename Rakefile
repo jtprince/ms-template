@@ -57,8 +57,13 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = NAME + ' ' + version
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+task :create_redirect do
   rdoc_redirect(base_rdoc_output_dir, gemspec.homepage,version)
 end
+
+task :rdoc => :create_redirect
 
 namespace :website do
   desc "checkout and configure the gh-pages submodule"
@@ -66,10 +71,21 @@ namespace :website do
     if File.exist?(WEBSITE_OUTPUT + "/.git")
       puts "!! not doing anything, #{WEBSITE_OUTPUT + "/.git"} already exists !!"
     else
-      system "git submodule init"
-      system "git submodule update"
+
+      puts "(not sure why this won't work programmatically)"
+      puts "################################################"
+      puts "[Execute these commands]"
+      puts "git submodule init"
+      puts "git submodule update"
+      puts "pushd #{WEBSITE_OUTPUT}"
+      puts "git co --track -b gh-pages origin/gh-pages ;"
+      puts "popd"
+      puts "################################################"
+
+      %x{git submodule init}
+      %x{git submodule update}
       Dir.chdir(WEBSITE_OUTPUT) do
-        system "git co --track -b gh-pages origin/gh-pages ;"
+        %x{git co --track -b gh-pages origin/gh-pages ;}
       end
     end
   end
