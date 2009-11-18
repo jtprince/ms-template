@@ -1,0 +1,3 @@
+[submodule "website/output"]
+	path = website/output
+	url = git@github.com:jtprince/ms-template.git
