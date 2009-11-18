@@ -12,9 +12,19 @@ def package_global_navigation_links
     'Intro' => '/',
     'Source' => github_base,
     'API' => github_base + "/rdoc/",
-    'issues' => github_base + "/issues/",
-    'WIKI' => "http://wiki.github.com/#{user}/#{project}"
+    'Issues' => github_base + "/issues/",
+    'Wiki' => "http://wiki.github.com/#{user}/#{project}"
   }
+end
+
+def package_name
+  gitrepo = `git config --get remote.origin.url`
+  gitrepo.split(':').last.split('/',2).last.sub(/\.git$/, '')
+end
+
+def github_username
+  gitrepo = `git config --get remote.origin.url`
+  gitrepo.split(':').last.split('/',2).first
 end
 
 def other_links

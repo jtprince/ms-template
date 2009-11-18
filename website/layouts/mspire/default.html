@@ -4,65 +4,72 @@
 
 <html>
     <head>
-        <title> mspire: <%= @item[:title] %> </title>
+        <title> mspire: <%= package_name %> - <%= @item[:title] %></title>
         <link rel="stylesheet", type="text/css" href="/style/mspire.css" media="screen"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width = 750">
 
     </head>
     <body>
-        <!-- banner -->
-        <div id="banner">
-            mspire
-        </div>
-
-        <!-- navigation -->
-        <div id="navigation">
-            <ul>
-                <!-- global_navigation_links defined in lib/mspire.rb -->
-                <% package_global_navigation_links.each do |name, ref| %>
-                <li class="nav" id="<%= name.downcase %>"> 
-                <a href="<%= ref %>"><%= name %></a>
-                </li> 
-                <% end %>
-            </ul>
-        </div>
-
-        <!-- main page section -->
-        <div id="page_body">
-
-            <!-- the actual content -->
-            <div id="content">
-                <%= yield %>
+        <div id="wrapper">
+            <!-- banner -->
+            <div id="header">
+                <div id="mspire_logo">
+                    <a href="http://jtprince.github.com/mspire/"><img border="none" src="/images/mspire_v2_banner.png"/></a>
+                </div>
+                <div id="package">
+                    <h1><%= package_name %></h1>
+                </div>
             </div>
 
-            <!-- the right sidebar -->
-            <div id="sidebar">
-                <!-- Links   -->
-                <div class="item">
-                    <h4>Links</h4>
-                    <ul>
-                        <!-- defined in lib/mspire.rb -->
-                        <% other_links.each do |name, ref| %>
-                        <li><a href="<%= ref %>"><%= name %></a></li>
-                        <% end %>
-                    </ul>
+            <!-- navigation -->
+            <div id="navigation">
+                <ul>
+                    <!-- global_navigation_links defined in lib/mspire.rb -->
+                    <% package_global_navigation_links.each do |name, ref| %>
+                    <li class="nav" id="<%= name.downcase %>"> 
+                    <a href="<%= ref %>"><%= name %></a>
+                    </li> 
+                    <% end %>
+                </ul>
+            </div>
 
-                    <!-- any links related to this package? -->
-                    <% if @item["links"] %>
+            <!-- main page section -->
+            <div id="page_body">
+
+                <!-- the actual content -->
+                <div id="content">
+                    <%= yield %>
+                </div>
+
+                <!-- the right sidebar -->
+                <div id="sidebar">
+                    <!-- Links   -->
+                    <div class="item">
+                        <h4>Links</h4>
+                        <ul>
+                            <!-- defined in lib/mspire.rb -->
+                            <% other_links.each do |name, ref| %>
+                            <li><a href="<%= ref %>"><%= name %></a></li>
+                            <% end %>
+                        </ul>
+
+                        <!-- any links related to this package? -->
+                        <% if @item["links"] %>
                         <ul>
                             <%@item["links"].each do |name, ref| %>
                             <li><a href="<%= ref %>"><%= name %></a></li>
                             <% end %>
                         </ul>
-                    <% end %> 
+                        <% end %> 
+                    </div>
+                    <!-- Posts  (will have to wait for another day) -->
+                    <!-- <div class="item"> </div> -->
                 </div>
-                <!-- Posts  (will have to wait for another day) -->
-                <!-- <div class="item"> </div> -->
             </div>
-        </div>
-        <div id="footer">
-            <p>website inspired by <a href="http://github.com/bahuvrihi">Simon Chiang</a> and built with <a href="http://nanoc.stoneship.org/">nanoc</a></p>
-        </div>
+            <div id="footer">
+                <p>website originally designed by <a href="http://github.com/bahuvrihi">Simon Chiang</a> | built with <a href="http://nanoc.stoneship.org/">nanoc</a></p>
+            </div>
+        </div> <!-- end wrapper -->
     </body>
 </html>
