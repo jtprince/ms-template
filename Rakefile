@@ -82,11 +82,12 @@ namespace :website do
       puts "popd"
       puts "################################################"
 
-      %x{git submodule init}
-      %x{git submodule update}
-      Dir.chdir(WEBSITE_OUTPUT) do
-        %x{git co --track -b gh-pages origin/gh-pages ;}
-      end
+      # not sure why this won't work!
+      #%x{git submodule init}
+      #%x{git submodule update}
+      #Dir.chdir(WEBSITE_OUTPUT) do
+      #  %x{git co --track -b gh-pages origin/gh-pages ;}
+      #end
     end
   end
 end
