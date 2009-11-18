@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+
+compile '/style/*/' do
+  filter :erb
+  filter :sass
+end 
+
+route '/style/*/' do
+  item.identifier.chop + '.css'
+end
+
+compile '*' do
+  filter :erb
+  layout 'mspire/default'
+end
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+layout '*', :erb

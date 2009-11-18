@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<!-- NOTE: this file can be updated from: http://github.com/jtprince/ms-template/raw/master/website/layouts/mspire/default.html -->
+
+<html>
+    <head>
+        <title> mspire: <%= @item[:title] %> </title>
+        <link rel="stylesheet", type="text/css" href="/style/mspire.css" media="screen"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width = 750">
+
+    </head>
+    <body>
+        <!-- banner -->
+        <div id="banner">
+            mspire
+        </div>
+
+        <!-- navigation -->
+        <div id="navigation">
+            <ul>
+                <!-- global_navigation_links defined in lib/mspire.rb -->
+                <% package_global_navigation_links.each do |name, ref| %>
+                <li class="nav" id="<%= name.downcase %>"> 
+                <a href="<%= ref %>"><%= name %></a>
+                </li> 
+                <% end %>
+            </ul>
+        </div>
+
+        <!-- main page section -->
+        <div id="page_body">
+
+            <!-- the actual content -->
+            <div id="content">
+                <%= yield %>
+            </div>
+
+            <!-- the right sidebar -->
+            <div id="sidebar">
+                <!-- Links   -->
+                <div class="item">
+                    <h4>Links</h4>
+                    <ul>
+                        <!-- defined in lib/mspire.rb -->
+                        <% other_links.each do |name, ref| %>
+                        <li><a href="<%= ref %>"><%= name %></a></li>
+                        <% end %>
+                    </ul>
+
+                    <!-- any links related to this package? -->
+                    <% if @item["links"] %>
+                        <ul>
+                            <%@item["links"].each do |name, ref| %>
+                            <li><a href="<%= ref %>"><%= name %></a></li>
+                            <% end %>
+                        </ul>
+                    <% end %> 
+                </div>
+                <!-- Posts  (will have to wait for another day) -->
+                <!-- <div class="item"> </div> -->
+            </div>
+        </div>
+        <div id="footer">
+            <p>website inspired by <a href="http://github.com/bahuvrihi">Simon Chiang</a> and built with <a href="http://nanoc.stoneship.org/">nanoc</a></p>
+        </div>
+    </body>
+</html>
